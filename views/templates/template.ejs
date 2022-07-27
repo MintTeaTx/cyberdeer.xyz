@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+
+      <%- include('../partials/'+header); %>
+</header>
+
+<main>
+  <div class="terminal body">
+    <%- include('../pages'+filename); %>
+    <div class="entry">
+      <div style="float:left;">> </div>
+      <div style="padding-left: 10px;float:left;" class="blink">_</div>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<h1>Index of /</h1>
+<hr>
+
+  <a href="../">../</a>
+  <% dirs.forEach(function(entry) {%>
+    <a href="<%=path+entry+'/'%>"><div class="entry">> <%= entry %></div></a>
+  <%}); %>
+  <% files.forEach(function(entry) {%>
+    <a href="<%=path+entry %>"><div class="entry">> <%= entry %></div></a>
+  <%}); %>

@@ -33,7 +33,7 @@ click: function() {
 });
 
 
-$("img").on({
+$(".terminal>img").on({
   click: function() {
     console.log("Image clicked!");
     console.log($(this).attr('src'));
@@ -46,4 +46,9 @@ $(".close").on({
     $("#imageModal").css("display", "none");
   }
 });
+$(".modal").on({
+  click: function(){
+    $("#imageModal").css("display", "none");
+  }
+})
 });

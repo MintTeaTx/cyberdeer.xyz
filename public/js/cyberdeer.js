@@ -31,4 +31,19 @@ click: function() {
 
 }
 });
+
+
+$("img").on({
+  click: function() {
+    console.log("Image clicked!");
+    console.log($(this).attr('src'));
+    $("#img01").attr('src', $(this).attr('src'));
+    $("#imageModal").css("display", "block");
+  }
+});
+$(".close").on({
+  click: function() {
+    $("#imageModal").css("display", "none");
+  }
+});
 });

@@ -8,7 +8,7 @@ const filedir = config.get('files.dir');
 const app = express();
 
 app.set('view engine', 'ejs');
-app.use(express.favicon(__dirname, 'public/images/favicon.ico'));
+app.use(favi(__dirname+'/public/images/favicon.ico'));
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/', function (req,res){

@@ -1,0 +1,14 @@
+{
+
+  "data":[
+  {
+    "type": "text",
+    "text": "welcome to my homepage, where I host all kinds of dumb things"
+  },
+  {
+    "type": "link",
+    "text": "Click Here For Files",
+    "url": "/files/"
+  }
+]
+}

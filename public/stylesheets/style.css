@@ -267,6 +267,9 @@
       padding-bottom: 1px;
       justify-content: space-between;
 
+      }
+    .entry:hover > a  {
+      background-color: rgba(0,125,0,0.5);
     }
 
     .blink {

@@ -28,7 +28,7 @@ try {
   }
 } catch (e) {
   console.log(e);
-  show404();
+  show404(res);
 }
 
   let dirs = fs.readdirSync(inpath).filter(function(file) {
@@ -47,7 +47,7 @@ app.all('*', (req, res) => {
    console.log(file);
    fs.access('./views/pages'+file+'.ejs', fs.F_OK, (err)=> {
       if (err) {
-         show404();
+         show404(res);
          console.log("butts");
       } else {
          renderWithHeader(res, {filename :''+file}, 'stdheader');
@@ -56,7 +56,7 @@ app.all('*', (req, res) => {
    });
 });
 
-function show404()
+function show404(res)
 {
   renderWithHeader(res, {filename :'/404'},'stdheader');
 

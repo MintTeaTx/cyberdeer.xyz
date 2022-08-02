@@ -20,11 +20,16 @@ app.get('/files/*', (req,res) => {
   let inpath = filedir + req.params[0];
   let path = "/files/"+req.params[0];
 
-    if(fs.statSync(inpath).isFile())
-    {
-      res.sendFile(inpath);
-      return;
-    }
+try {
+  if(fs.statSync(inpath).isFile())
+  {
+    res.sendFile(inpath);
+    return;
+  }
+} catch (e) {
+  console.log(e);
+  show404();
+}
 
   let dirs = fs.readdirSync(inpath).filter(function(file) {
     return fs.statSync(inpath+'/'+file).isDirectory();
@@ -42,15 +47,20 @@ app.all('*', (req, res) => {
    console.log(file);
    fs.access('./views/pages'+file+'.ejs', fs.F_OK, (err)=> {
       if (err) {
-         renderWithHeader(res, {filename :'/404'},'stdheader');
+         show404();
          console.log("butts");
       } else {
-        console.log("dicks");
          renderWithHeader(res, {filename :''+file}, 'stdheader');
       }
 
    });
 });
+
+function show404()
+{
+  renderWithHeader(res, {filename :'/404'},'stdheader');
+
+}
 
 function renderWithHeader(res, array) {
   console.log("stdheader"

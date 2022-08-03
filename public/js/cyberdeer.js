@@ -1,4 +1,6 @@
 let hidden = false;
+
+let modal = [];
 $(document).ready( function() {
 
 $("#x").on({
@@ -31,24 +33,32 @@ click: function() {
 
 }
 });
-
-
 $(".terminal>img").on({
   click: function() {
     console.log("Image clicked!");
     console.log($(this).attr('src'));
-    $("#img01").attr('src', $(this).attr('src'));
-    $("#imageModal").css("display", "block");
+    showModal('<img class="modal-image" id="img01" name="img01" src="'+ $(this).attr('src')+'">');
   }
 });
+
 $(".close").on({
   click: function() {
-    $("#imageModal").css("display", "none");
-  }
+  closeModal();
+}
 });
-$(".modal").on({
-  click: function(){
-    $("#imageModal").css("display", "none");
-  }
-})
+// $(".modal").on({
+//   click: function(){
+//     closeModal();
+//   }
+// });
 });
+function showModal(appends){
+  $("#modalContent").append(appends);
+  $(".modal").css("display", "block");
+}
+
+function closeModal()
+{
+  $("#modalContent").empty();
+  $(".modal").css("display", "none");
+}

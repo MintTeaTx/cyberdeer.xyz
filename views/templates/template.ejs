@@ -13,17 +13,19 @@
 <main>
   <div class="terminal body">
     <%- include('../pages'+filename); %>
-    <div class="entry">
+    <div class="entry" id="cursor" name="cursor">
       <div style="float:left;">> </div>
       <div style="padding-left: 10px;float:left;" class="blink">_</div>
     </div>
   </div>
 </main>
 
-<div id="imageModal" class="modal">
+<div id="modal" class="modal">
   <!-- Modal content -->
   <span class="close">&times;</span>
-  <img class="modal-image" id="img01" name="img01">
+  <div id="modalContent">
+
+  </div>
 </div>
 
 </body>

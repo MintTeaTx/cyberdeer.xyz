@@ -11,9 +11,12 @@ app.set('view engine', 'ejs');
 app.use(favi(__dirname+'/public/images/favicon.ico'));
 app.use('/public', express.static(__dirname + '/public'));
 
+
 app.get('/', function (req,res){
    renderWithHeader(res, {filename :'/index'}, 'indexheader');
 });
+
+
 
 app.get('/files/*', (req,res) => {
 
@@ -41,6 +44,8 @@ try {
 renderWithHeader(res, {filename :'/files', dirs:dirs, files:files, path:path}, 'stashheader');
 });
 
+
+
 app.all('*', (req, res) => {
 
    const file = (req.params[0].charAt(req.params[0].length-1) === '/') ? req.params[0].slice(0, -1) : req.params[0]  ;
@@ -55,6 +60,8 @@ app.all('*', (req, res) => {
 
    });
 });
+
+
 
 function show404(res)
 {

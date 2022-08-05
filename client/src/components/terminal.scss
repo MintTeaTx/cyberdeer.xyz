@@ -1,0 +1,58 @@
+
+.terminal {
+
+  margin-left: 50px;
+  margin-right: 50px;
+  white-space: nowrap;
+  overflow:hidden;
+
+
+  .terminal-head {
+    margin-top: 50px;
+
+    padding: 10px;
+    justify-content: space-between;
+    background: rgba(0, 125, 0, 0.5);
+    overflow: hidden;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .terminal-body {
+    padding: 5px;
+    overflow: scroll;
+    border: 1px solid green;
+    border-top: none;
+    height: 80vh;
+
+    div {
+      padding-top: 1px;
+      padding-bottom: 1px;
+      justify-content: space-between;
+    }
+    div:hover > a{
+      background-color: rgba(0, 125, 0, 0.5);
+    }
+  }
+
+  div::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+    /* width of the entire scrollbar */
+  }
+
+  div::-webkit-scrollbar-track {
+    background: black;
+    border:4px;
+    /* color of the tracking area */
+  }
+
+  div::-webkit-scrollbar-thumb {
+    background-color: green;
+    /* color of the scroll thumb */
+    border-radius: 5px;
+    /* roundness of the scroll thumb */
+    border: 3px solid green;
+    /* creates padding around scroll thumb */
+  }
+}

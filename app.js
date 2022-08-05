@@ -11,8 +11,11 @@ app.set('view engine', 'ejs');
 app.use(favi(__dirname+'/public/images/favicon.ico'));
 app.use('/public', express.static(__dirname + '/public'));
 
-app.get('/', function (req,res){
-   renderWithHeader(res, {filename :'/index'}, 'indexheader');
+app.get('/index', function (req,res){
+
+  console.log(readFileLines(__dirname+'/views/pages/index.ejs'));
+  data = readFileLines(__dirname+'/views/pages/index.ejs');  
+   res.send(data);
 });
 
 app.get('/files/*', (req,res) => {
@@ -72,7 +75,15 @@ function renderWithHeader(res, array, header) {
     console.log(array.header);
     res.render('templates/template', array);
 }
-app.listen(config.get('server.port'), function ()
-{
-   console.log('listening on '+config.get('server.port'));
-});
+
+const readFileLines = filename =>
+   fs.readFileSync(filename)
+   .toString('UTF8')
+   .split('\n');
+
+var server = app.listen(config.get('server.port'), function () {
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("Example app listening at http://%s:%s", host, port)
+})

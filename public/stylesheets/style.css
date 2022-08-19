@@ -261,6 +261,24 @@
       overflow: scroll;
       height: 80vh;
     }
+    .menu-pane {
+      width: 33%;
+      float: left;
+      border: 1px solid green;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      overflow: scroll;
+      height: 80vh;
+    }
+    .menu-content {
+      width: 66%;
+      float: left;
+      border: 1px solid green;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      overflow: scroll;
+      height: 80vh;
+    }
 
     .entry {
       padding-top: 1px;
@@ -305,6 +323,8 @@
       font-weight: bold;
       transition: 0.3s;
     }
+
+
     div::-webkit-scrollbar {
       height: 2px;
       width: 2px;
@@ -324,4 +344,27 @@
       /* roundness of the scroll thumb */
       border: 3px solid green;
       /* creates padding around scroll thumb */
+    }
+    #treeview, #treeview ul {
+    list-style: none;
+}
+
+    #treeview .caret {
+        cursor: pointer;
+    }
+
+    .caret::before{
+        content: ">";
+        display: inline-block;
+    }
+    .caret-down::before {
+      transform: rotate(90deg);
+    }
+
+    #treeview .inactive:before {
+        background-position: 0 top;
+    }
+
+    #treeview .parent > ul {
+        display: none;
     }
